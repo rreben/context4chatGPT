@@ -15,7 +15,12 @@ python context4chatGPT.py --help
 python context4chatGPT.py -r folder_to_my_context_data
 ``` 
 
+## Credentials
 
 This work is inspired by the blog article "How To Build Your Own Custom ChatGPT With Custom Knowledge Base" [1].
 
+Also big thanks to lemonjp for providing a sample of how to use llamaindex [2].
+
 [1]: Timothy Mugayi, ‘How To Build Your Own Custom ChatGPT With Custom Knowledge Base’, Medium <https://medium.com/better-programming/how-to-build-your-own-custom-chatgpt-with-custom-knowledge-base-4e61ad82427e>.
+
+[2]: https://github.com/lemonjp/chatgpt-llamaindex-demo

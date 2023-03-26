@@ -5,6 +5,9 @@ import click
 
 
 def check_api_key():
+    '''Check if the API key is set in the environment variables.
+    The key is not explicitly used in this script, but the environment variable
+    is required for the llama_index library to work.'''
     api_key = os.environ.get('OPENAI_API_KEY')
     if api_key:
         click.echo(f"API key is: {api_key}")

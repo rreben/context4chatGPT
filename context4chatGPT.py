@@ -1,8 +1,17 @@
 from llama_index import GPTSimpleVectorIndex, SimpleDirectoryReader
 import os
+import sys
 import click
 
-key = os.environ['OPENAI_API_KEY']
+
+def check_api_key():
+    api_key = os.environ.get('OPENAI_API_KEY')
+    if api_key:
+        click.echo(f"API key is: {api_key}")
+    else:
+        click.echo("API key is not set. Use: export OPENAI_API_KEY=your_key")
+        sys.exit(1)
+    return api_key
 
 
 @click.command(help='''Uses the file in INPUT_FOLDER to create context
@@ -15,6 +24,7 @@ key = os.environ['OPENAI_API_KEY']
               help='recreate the index from scratch')
 def main(input_folder, recreate_index):
     question = ' '
+    check_api_key()
     if recreate_index or not os.path.exists('index.json'):
         loader = SimpleDirectoryReader(input_folder)
         documents = loader.load_data()
